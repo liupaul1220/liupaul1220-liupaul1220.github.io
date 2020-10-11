@@ -118,9 +118,19 @@
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
 
   </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th - EC2 fa-fw"></i>分類</a>
+
+  </li>
         <li class="menu-item menu-item-archives">
 
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -177,7 +187,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://liupaul1220.github.io/2020/10/10/%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0%E5%90%8D/">
+    <link itemprop="mainEntityOfPage" href="https://liupaul1220.github.io/2020/10/10/AWS-EC2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -191,7 +201,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/10/%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0%E5%90%8D/" class="post-title-link" itemprop="url">新增文章名</a>
+            <a href="/2020/10/10/AWS-EC2/" class="post-title-link" itemprop="url">ec2更改為用root帳號ssh登入</a>
         </h2>
 
         <div class="post-meta">
@@ -200,9 +210,28 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">發表於</span>
-              
 
-              <time title="創建時間：2020-10-10 19:23:34 / 修改時間：19:24:21" itemprop="dateCreated datePublished" datetime="2020-10-10T19:23:34+08:00">2020-10-10</time>
+              <time title="創建時間：2020-10-10 23:34:08" itemprop="dateCreated datePublished" datetime="2020-10-10T23:34:08+08:00">2020-10-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2020-10-11 01:00:47" itemprop="dateModified" datetime="2020-10-11T01:00:47+08:00">2020-10-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AWS/" itemprop="url" rel="index"><span itemprop="name">AWS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AWS/EC2/" itemprop="url" rel="index"><span itemprop="name">EC2</span></a>
+                </span>
             </span>
 
           
@@ -216,7 +245,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="首先用ssh方式登入機器"><a href="#首先用ssh方式登入機器" class="headerlink" title="首先用ssh方式登入機器"></a>首先用ssh方式登入機器</h1><h6 id="1-建立完機器會下載一組金鑰如「web01-new-ppk」"><a href="#1-建立完機器會下載一組金鑰如「web01-new-ppk」" class="headerlink" title="1.建立完機器會下載一組金鑰如「web01_new.ppk」"></a>1.建立完機器會下載一組金鑰如「web01_new.ppk」</h6><h6 id="2-放到linux機器裡並更改密鑰權限為400"><a href="#2-放到linux機器裡並更改密鑰權限為400" class="headerlink" title="2.放到linux機器裡並更改密鑰權限為400"></a>2.放到linux機器裡並更改密鑰權限為400</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 web01_new.pem</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-用ssh指令登入ec2"><a href="#3-用ssh指令登入ec2" class="headerlink" title="3.用ssh指令登入ec2"></a>3.用ssh指令登入ec2</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i &quot;web01_new.pem&quot; ec2-user@ec2-54-249-50-180.ap-northeast-1.compute.amazonaws.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="Image.png"></p>
+<h1 id="登入後目前是以ec2-user身份操作-建立root密碼與變更sshd的設定"><a href="#登入後目前是以ec2-user身份操作-建立root密碼與變更sshd的設定" class="headerlink" title="登入後目前是以ec2-user身份操作, 建立root密碼與變更sshd的設定"></a>登入後目前是以ec2-user身份操作, 建立root密碼與變更sshd的設定</h1><h6 id="1-建立root密碼"><a href="#1-建立root密碼" class="headerlink" title="1.建立root密碼"></a>1.建立root密碼</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="2-修改-sshd-config-檔"><a href="#2-修改-sshd-config-檔" class="headerlink" title="2.修改 sshd_config 檔"></a>2.修改 sshd_config 檔</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo vi  /etc/ssh/sshd_config  </span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------------------------------</span><br><span class="line">允許用root帳號登入</span><br><span class="line">PermitRootLogin yes</span><br><span class="line">使用帳號密碼驗證登入</span><br><span class="line">PasswordAuthentication yes</span><br><span class="line">不允許使用帳號密碼登入  註解掉</span><br><span class="line"><span class="meta">#</span><span class="bash">PasswordAuthentication no</span></span><br><span class="line">加快登入速度，關閉ip反解</span><br><span class="line">UseDNS no</span><br><span class="line">加快登入速度，關閉ip反解</span><br><span class="line">GSSAPIAuthentication no</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-重啟ssh服務"><a href="#3-重啟ssh服務" class="headerlink" title="3.重啟ssh服務"></a>3.重啟ssh服務</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  systemctl restart sshd</span><br></pre></td></tr></table></figure>
+
+<h6 id="4-設定主機名稱"><a href="#4-設定主機名稱" class="headerlink" title="4.設定主機名稱"></a>4.設定主機名稱</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname 主機名稱</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="補充"><a href="#補充" class="headerlink" title="補充:"></a>補充:</h5><blockquote>
+<p>清ssl 連線紀錄 (用於client主機曾經連線到相同遠端主機ip)</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -R 主機名稱</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -371,6 +422,12 @@
           <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">文章</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分類</span></a>
       </div>
   </nav>
 </div>
