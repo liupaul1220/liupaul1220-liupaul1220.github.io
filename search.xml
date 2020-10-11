@@ -22,7 +22,8 @@
   <entry>
     <title>rds清除Slow_log Table紀錄</title>
     <url>/2020/10/11/rds%E6%B8%85%E9%99%A4slow-log-Table%E7%B4%80%E9%8C%84/</url>
-    <content><![CDATA[<h5 id="sql語法中執行"><a href="#sql語法中執行" class="headerlink" title="sql語法中執行"></a>sql語法中執行</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">call rds_rotate_slow_log;</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p><em><a id="more"></a></em></p>
+<h5 id="sql語法中執行"><a href="#sql語法中執行" class="headerlink" title="sql語法中執行"></a>sql語法中執行</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">call rds_rotate_slow_log;</span><br></pre></td></tr></table></figure>
 
 <p><font color="red">rds_rotate_slow_log是Aws內建的procedure程序</font></p>
 ]]></content>
