@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"liupaul1220.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="很多網誌">
+  <meta name="description" content="RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能修改Parameter Group 1.先啟動slow-log，到Parameter Group過濾關鍵字， slow_query_log   1  (1是啟用,預設是0) 2.log_output option File (LOG輸出格式，預設是table，在AWS上觀看要選Fil">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RDS修改slow-log輸出位置">
 <meta property="og:url" content="https://liupaul1220.github.io/2020/10/11/rds/index.html">
 <meta property="og:site_name" content="小晟故事多">
-<meta property="og:description" content="很多網誌">
+<meta property="og:description" content="RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能修改Parameter Group 1.先啟動slow-log，到Parameter Group過濾關鍵字， slow_query_log   1  (1是啟用,預設是0) 2.log_output option File (LOG輸出格式，預設是table，在AWS上觀看要選Fil">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-11T02:29:58.000Z">
-<meta property="article:modified_time" content="2020-10-11T02:48:25.933Z">
+<meta property="article:modified_time" content="2020-10-11T03:02:53.896Z">
 <meta property="article:author" content="liupaul1220">
 <meta property="article:tag" content="rds">
 <meta name="twitter:card" content="summary">
@@ -122,12 +122,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">4</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -137,7 +137,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">2</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -219,7 +219,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2020-10-11 10:29:58 / 修改時間：10:48:25" itemprop="dateCreated datePublished" datetime="2020-10-11T10:29:58+08:00">2020-10-11</time>
+              <time title="創建時間：2020-10-11 10:29:58 / 修改時間：11:02:53" itemprop="dateCreated datePublished" datetime="2020-10-11T10:29:58+08:00">2020-10-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,7 +246,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <p>RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能修改Parameter Group</p>
+<p>1.先啟動slow-log，到Parameter Group過濾關鍵字， slow_query_log   1  (1是啟用,預設是0)</p>
+<p>2.log_output option File (LOG輸出格式，預設是table，在AWS上觀看要選File)</p>
+<p>3.設定完成後，就可利用phpmyadmin或是其他mysql 管理工具 到 mysql 資料庫 底下的 slow_log table 看到紀錄。</p>
+
     </div>
 
     
@@ -349,7 +353,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">

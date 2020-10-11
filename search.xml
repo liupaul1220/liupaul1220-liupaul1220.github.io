@@ -26,7 +26,11 @@
   <entry>
     <title>RDS修改slow-log輸出位置</title>
     <url>/2020/10/11/rds/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能修改Parameter Group</p>
+<p>1.先啟動slow-log，到Parameter Group過濾關鍵字， slow_query_log   1  (1是啟用,預設是0)</p>
+<p>2.log_output option File (LOG輸出格式，預設是table，在AWS上觀看要選File)</p>
+<p>3.設定完成後，就可利用phpmyadmin或是其他mysql 管理工具 到 mysql 資料庫 底下的 slow_log table 看到紀錄。</p>
+]]></content>
       <categories>
         <category>aws</category>
         <category>rds</category>
@@ -62,7 +66,7 @@
 
 ]]></content>
       <categories>
-        <category>Aws</category>
+        <category>aws</category>
         <category>ec2</category>
       </categories>
       <tags>
