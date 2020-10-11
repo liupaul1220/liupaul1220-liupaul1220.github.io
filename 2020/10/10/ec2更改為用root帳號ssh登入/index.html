@@ -20,31 +20,33 @@
     var CONFIG = {"hostname":"liupaul1220.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="很多網誌">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小晟故事多">
-<meta property="og:url" content="https://liupaul1220.github.io/index.html">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="ec2更改為用root帳號ssh登入">
+<meta property="og:url" content="https://liupaul1220.github.io/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/index.html">
 <meta property="og:site_name" content="小晟故事多">
-<meta property="og:description" content="很多網誌">
 <meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="c:/Users/liupaul/Desktop/Image.png">
+<meta property="article:published_time" content="2020-10-10T15:34:08.000Z">
+<meta property="article:modified_time" content="2020-10-11T07:46:57.141Z">
 <meta property="article:author" content="liupaul1220">
 <meta property="article:tag" content="小晟網誌">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/liupaul/Desktop/Image.png">
 
-<link rel="canonical" href="https://liupaul1220.github.io/">
+<link rel="canonical" href="https://liupaul1220.github.io/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>小晟故事多</title>
+  <title>ec2更改為用root帳號ssh登入 | 小晟故事多</title>
   
 
 
@@ -186,9 +188,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
@@ -204,10 +207,9 @@
       <meta itemprop="name" content="小晟故事多">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/" class="post-title-link" itemprop="url">ec2更改為用root帳號ssh登入</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          ec2更改為用root帳號ssh登入
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -250,107 +252,54 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p><em>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/#more" rel="contents">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+        <p><em><a id="more"></a></em></p>
+<h1 id="首先用ssh方式登入機器"><a href="#首先用ssh方式登入機器" class="headerlink" title="首先用ssh方式登入機器"></a>首先用ssh方式登入機器</h1><h6 id="1-建立完機器會下載一組金鑰如「web01-new-ppk」"><a href="#1-建立完機器會下載一組金鑰如「web01-new-ppk」" class="headerlink" title="1.建立完機器會下載一組金鑰如「web01_new.ppk」"></a>1.建立完機器會下載一組金鑰如「web01_new.ppk」</h6><h6 id="2-放到linux機器裡並更改密鑰權限為400"><a href="#2-放到linux機器裡並更改密鑰權限為400" class="headerlink" title="2.放到linux機器裡並更改密鑰權限為400"></a>2.放到linux機器裡並更改密鑰權限為400</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 400 web01_new.pem</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-用ssh指令登入ec2"><a href="#3-用ssh指令登入ec2" class="headerlink" title="3.用ssh指令登入ec2"></a>3.用ssh指令登入ec2</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i &quot;web01_new.pem&quot; ec2-user@ec2-54-249-50-180.ap-northeast-1.compute.amazonaws.com</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:/Users/liupaul/Desktop/Image.png"></p>
+<h1 id="登入後目前是以ec2-user身份操作-建立root密碼與變更sshd的設定"><a href="#登入後目前是以ec2-user身份操作-建立root密碼與變更sshd的設定" class="headerlink" title="登入後目前是以ec2-user身份操作, 建立root密碼與變更sshd的設定"></a>登入後目前是以ec2-user身份操作, 建立root密碼與變更sshd的設定</h1><h6 id="1-建立root密碼"><a href="#1-建立root密碼" class="headerlink" title="1.建立root密碼"></a>1.建立root密碼</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">passwd root</span><br></pre></td></tr></table></figure>
+
+
+
+<h6 id="2-修改-sshd-config-檔"><a href="#2-修改-sshd-config-檔" class="headerlink" title="2.修改 sshd_config 檔"></a>2.修改 sshd_config 檔</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo vi  /etc/ssh/sshd_config  </span><br><span class="line"></span><br><span class="line">---------------------------------------------------------------------------------------------</span><br><span class="line"><span class="meta">#</span><span class="bash">允許用root帳號登入</span></span><br><span class="line">PermitRootLogin yes</span><br><span class="line"><span class="meta">#</span><span class="bash">使用帳號密碼驗證登入</span></span><br><span class="line">PasswordAuthentication yes</span><br><span class="line"><span class="meta">#</span><span class="bash">不允許使用帳號密碼登入  *註解掉</span></span><br><span class="line"><span class="meta">#</span><span class="bash">PasswordAuthentication no</span></span><br><span class="line"><span class="meta">#</span><span class="bash">加快登入速度，關閉ip反解</span></span><br><span class="line">UseDNS no</span><br><span class="line"><span class="meta">#</span><span class="bash">加快登入速度，關閉ip反解</span></span><br><span class="line">GSSAPIAuthentication no</span><br></pre></td></tr></table></figure>
+
+<h6 id="3-重啟ssh服務"><a href="#3-重啟ssh服務" class="headerlink" title="3.重啟ssh服務"></a>3.重啟ssh服務</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo  systemctl restart sshd</span><br></pre></td></tr></table></figure>
+
+<h6 id="4-設定主機名稱"><a href="#4-設定主機名稱" class="headerlink" title="4.設定主機名稱"></a>4.設定主機名稱</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname 主機名稱</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="補充"><a href="#補充" class="headerlink" title="補充:"></a>補充:</h5><blockquote>
+<p>清ssl 連線紀錄 (用於client主機曾經連線到相同遠端主機ip)</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -R 主機名稱</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/10/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
       </footer>
+    
   </article>
   
   
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://liupaul1220.github.io/2020/10/10/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="liupaul1220">
-      <meta itemprop="description" content="很多網誌">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小晟故事多">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/10/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">發表於</span>
-
-              <time title="創建時間：2020-10-10 18:20:20" itemprop="dateCreated datePublished" datetime="2020-10-10T18:20:20+08:00">2020-10-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-11 15:29:56" itemprop="dateModified" datetime="2020-10-11T15:29:56+08:00">2020-10-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
   
 
 
@@ -403,6 +352,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E7%94%A8ssh%E6%96%B9%E5%BC%8F%E7%99%BB%E5%85%A5%E6%A9%9F%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">首先用ssh方式登入機器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%BB%BA%E7%AB%8B%E5%AE%8C%E6%A9%9F%E5%99%A8%E6%9C%83%E4%B8%8B%E8%BC%89%E4%B8%80%E7%B5%84%E9%87%91%E9%91%B0%E5%A6%82%E3%80%8Cweb01-new-ppk%E3%80%8D"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">1.建立完機器會下載一組金鑰如「web01_new.ppk」</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E6%94%BE%E5%88%B0linux%E6%A9%9F%E5%99%A8%E8%A3%A1%E4%B8%A6%E6%9B%B4%E6%94%B9%E5%AF%86%E9%91%B0%E6%AC%8A%E9%99%90%E7%82%BA400"><span class="nav-number">1.0.0.0.0.2.</span> <span class="nav-text">2.放到linux機器裡並更改密鑰權限為400</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E7%94%A8ssh%E6%8C%87%E4%BB%A4%E7%99%BB%E5%85%A5ec2"><span class="nav-number">1.0.0.0.0.3.</span> <span class="nav-text">3.用ssh指令登入ec2</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%99%BB%E5%85%A5%E5%BE%8C%E7%9B%AE%E5%89%8D%E6%98%AF%E4%BB%A5ec2-user%E8%BA%AB%E4%BB%BD%E6%93%8D%E4%BD%9C-%E5%BB%BA%E7%AB%8Broot%E5%AF%86%E7%A2%BC%E8%88%87%E8%AE%8A%E6%9B%B4sshd%E7%9A%84%E8%A8%AD%E5%AE%9A"><span class="nav-number">2.</span> <span class="nav-text">登入後目前是以ec2-user身份操作, 建立root密碼與變更sshd的設定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E5%BB%BA%E7%AB%8Broot%E5%AF%86%E7%A2%BC"><span class="nav-number">2.0.0.0.0.1.</span> <span class="nav-text">1.建立root密碼</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E4%BF%AE%E6%94%B9-sshd-config-%E6%AA%94"><span class="nav-number">2.0.0.0.0.2.</span> <span class="nav-text">2.修改 sshd_config 檔</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E9%87%8D%E5%95%9Fssh%E6%9C%8D%E5%8B%99"><span class="nav-number">2.0.0.0.0.3.</span> <span class="nav-text">3.重啟ssh服務</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-%E8%A8%AD%E5%AE%9A%E4%B8%BB%E6%A9%9F%E5%90%8D%E7%A8%B1"><span class="nav-number">2.0.0.0.0.4.</span> <span class="nav-text">4.設定主機名稱</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E8%A3%9C%E5%85%85"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">補充:</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
