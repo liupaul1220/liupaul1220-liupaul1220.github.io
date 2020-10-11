@@ -274,7 +274,7 @@
               <span class="post-meta-item-text">發表於</span>
               
 
-              <time title="創建時間：2020-10-11 10:29:58 / 修改時間：11:02:53" itemprop="dateCreated datePublished" datetime="2020-10-11T10:29:58+08:00">2020-10-11</time>
+              <time title="創建時間：2020-10-11 10:29:58 / 修改時間：11:42:53" itemprop="dateCreated datePublished" datetime="2020-10-11T10:29:58+08:00">2020-10-11</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -301,10 +301,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能修改Parameter Group</p>
-<p>1.先啟動slow-log，到Parameter Group過濾關鍵字， slow_query_log   1  (1是啟用,預設是0)</p>
-<p>2.log_output option File (LOG輸出格式，預設是table，在AWS上觀看要選File)</p>
-<p>3.設定完成後，就可利用phpmyadmin或是其他mysql 管理工具 到 mysql 資料庫 底下的 slow_log table 看到紀錄。</p>
+          <p>RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能到RDS控制台，修改Parameter Group</p>
+<ol>
+<li><p>先啟動slow-log，到Parameter Group過濾關鍵字， <font color=#0000FF>slow_query_log   1  (1是啟用,預設是0) </font></p>
+</li>
+<li><p><font color=#0000FF>log_output option File </font> (LOG輸出格式，預設是table，在AWS上觀看要選File)</p>
+</li>
+<li><p>設定完成後，就可利用phpmyadmin或是其他mysql 管理工具 到 mysql 資料庫內的<font color="blue">slow_log資料表</font>看到紀錄。</p>
+</li>
+</ol>
 
       
     </div>
