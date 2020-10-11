@@ -31,7 +31,7 @@
 
 <h6 id="3-用ssh指令登入ec2"><a href="#3-用ssh指令登入ec2" class="headerlink" title="3.用ssh指令登入ec2"></a>3.用ssh指令登入ec2</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -i &quot;web01_new.pem&quot; ec2-user@ec2-54-249-50-180.ap-northeast-1.compute.amazonaws.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:/Users/liupaul/Desktop/Image.png"></p>
+<p><img src="Image.png"></p>
 <h1 id="登入後目前是以ec2-user身份操作-建立root密碼與變更sshd的設定"><a href="#登入後目前是以ec2-user身份操作-建立root密碼與變更sshd的設定" class="headerlink" title="登入後目前是以ec2-user身份操作, 建立root密碼與變更sshd的設定"></a>登入後目前是以ec2-user身份操作, 建立root密碼與變更sshd的設定</h1><h6 id="1-建立root密碼"><a href="#1-建立root密碼" class="headerlink" title="1.建立root密碼"></a>1.建立root密碼</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo su</span><br><span class="line">passwd root</span><br></pre></td></tr></table></figure>
 
 

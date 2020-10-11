@@ -25,13 +25,13 @@
 <meta property="og:url" content="https://liupaul1220.github.io/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/index.html">
 <meta property="og:site_name" content="小晟故事多">
 <meta property="og:locale" content="zh_TW">
-<meta property="og:image" content="c:/Users/liupaul/Desktop/Image.png">
+<meta property="og:image" content="https://liupaul1220.github.io/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/Image.png">
 <meta property="article:published_time" content="2020-10-10T15:34:08.000Z">
-<meta property="article:modified_time" content="2020-10-11T07:46:57.141Z">
+<meta property="article:modified_time" content="2020-10-11T07:50:03.549Z">
 <meta property="article:author" content="liupaul1220">
 <meta property="article:tag" content="小晟網誌">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:/Users/liupaul/Desktop/Image.png">
+<meta name="twitter:image" content="https://liupaul1220.github.io/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/Image.png">
 
 <link rel="canonical" href="https://liupaul1220.github.io/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/">
 
@@ -225,7 +225,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-11 15:46:57" itemprop="dateModified" datetime="2020-10-11T15:46:57+08:00">2020-10-11</time>
+                <time title="修改時間：2020-10-11 15:50:03" itemprop="dateModified" datetime="2020-10-11T15:50:03+08:00">2020-10-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -257,7 +257,7 @@
 
 <h6 id="3-用ssh指令登入ec2"><a href="#3-用ssh指令登入ec2" class="headerlink" title="3.用ssh指令登入ec2"></a>3.用ssh指令登入ec2</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -i &quot;web01_new.pem&quot; ec2-user@ec2-54-249-50-180.ap-northeast-1.compute.amazonaws.com</span><br></pre></td></tr></table></figure>
 
-<p><img src="C:/Users/liupaul/Desktop/Image.png"></p>
+<p><img src="Image.png"></p>
 <h1 id="登入後目前是以ec2-user身份操作-建立root密碼與變更sshd的設定"><a href="#登入後目前是以ec2-user身份操作-建立root密碼與變更sshd的設定" class="headerlink" title="登入後目前是以ec2-user身份操作, 建立root密碼與變更sshd的設定"></a>登入後目前是以ec2-user身份操作, 建立root密碼與變更sshd的設定</h1><h6 id="1-建立root密碼"><a href="#1-建立root密碼" class="headerlink" title="1.建立root密碼"></a>1.建立root密碼</h6><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su</span><br><span class="line">passwd root</span><br></pre></td></tr></table></figure>
 
 
