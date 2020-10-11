@@ -20,7 +20,28 @@
 ]]></content>
   </entry>
   <entry>
-    <title>ec2更改為用root帳號ssh登入</title>
+    <title>ec2系統內更換預設路由</title>
+    <url>/2020/10/11/ec2%E7%B3%BB%E7%B5%B1%E5%85%A7%E6%9B%B4%E6%8F%9B%E9%A0%90%E8%A8%AD%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p>aws-ec2 預設出去都是走eth0，但是如果你一台ec2有綁定2張網卡，要讓封包從eth1出去，這時候就會需要變更預設路由:</p>
+<h6 id="方法"><a href="#方法" class="headerlink" title="方法:"></a>方法:</h6><ol>
+<li><p>putty連線</p>
+</li>
+<li><p>查詢路由route -n</p>
+</li>
+<li><p>刪除預設gwroute del default gw 10.20.4.1</p>
+</li>
+<li><p>新增預設gw10.2route add default gw 10.20.3.1</p>
+</li>
+</ol>
+<p>   <font color="red">因為重啟系統後，路由又會恢復原狀，所以可以利用開機自動執行方式，將路由變更寫到Shell內然後開機自動執行( vi /etc/rc.local )shell。</font></p>
+]]></content>
+      <categories>
+        <category>aws</category>
+        <category>ec2</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>ec2改為用root帳號ssh登入</title>
     <url>/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/</url>
     <content><![CDATA[<p><em><a id="more"></a></em></p>
 <h1 id="首先用ssh方式登入機器"><a href="#首先用ssh方式登入機器" class="headerlink" title="首先用ssh方式登入機器"></a>首先用ssh方式登入機器</h1><h6 id="1-建立完機器會下載一組金鑰如「web01-new-ppk」"><a href="#1-建立完機器會下載一組金鑰如「web01-new-ppk」" class="headerlink" title="1.建立完機器會下載一組金鑰如「web01_new.ppk」"></a>1.建立完機器會下載一組金鑰如「web01_new.ppk」</h6><h6 id="2-放到linux機器裡並更改密鑰權限為400"><a href="#2-放到linux機器裡並更改密鑰權限為400" class="headerlink" title="2.放到linux機器裡並更改密鑰權限為400"></a>2.放到linux機器裡並更改密鑰權限為400</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 400 web01_new.pem</span><br></pre></td></tr></table></figure>
