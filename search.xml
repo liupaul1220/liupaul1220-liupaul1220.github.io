@@ -3,7 +3,8 @@
   <entry>
     <title>Hello World</title>
     <url>/2020/10/10/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    <content><![CDATA[<p><em><a id="more"></a></em></p>
+<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -53,7 +54,8 @@
   <entry>
     <title>rds修改slow-log輸出位置</title>
     <url>/2020/10/10/rds%E4%BF%AE%E6%94%B9slow-log%E8%BC%B8%E5%87%BA%E4%BD%8D%E7%BD%AE/</url>
-    <content><![CDATA[<p>RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能到RDS控制台，修改Parameter Group</p>
+    <content><![CDATA[<p><em><a id="more"></a></em></p>
+<p>RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能到RDS控制台，修改Parameter Group</p>
 <ol>
 <li><p>先啟動slow-log，到Parameter Group過濾關鍵字， <font color=#0000FF>slow_query_log   1  (1是啟用,預設是0) </font></p>
 </li>

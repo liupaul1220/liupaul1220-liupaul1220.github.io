@@ -20,15 +20,13 @@
     var CONFIG = {"hostname":"liupaul1220.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能到RDS控制台，修改Parameter Group  先啟動slow-log，到Parameter Group過濾關鍵字， slow_query_log   1  (1是啟用,預設是0)   log_output option File  (LOG輸出格式，預設是table，在AWS">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="rds修改slow-log輸出位置">
 <meta property="og:url" content="https://liupaul1220.github.io/2020/10/10/rds%E4%BF%AE%E6%94%B9slow-log%E8%BC%B8%E5%87%BA%E4%BD%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="小晟故事多">
-<meta property="og:description" content="RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能到RDS控制台，修改Parameter Group  先啟動slow-log，到Parameter Group過濾關鍵字， slow_query_log   1  (1是啟用,預設是0)   log_output option File  (LOG輸出格式，預設是table，在AWS">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-10T07:49:20.000Z">
-<meta property="article:modified_time" content="2020-10-11T07:52:46.061Z">
+<meta property="article:modified_time" content="2020-10-11T07:55:38.804Z">
 <meta property="article:author" content="liupaul1220">
 <meta property="article:tag" content="小晟網誌">
 <meta name="twitter:card" content="summary">
@@ -225,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新於</span>
-                <time title="修改時間：2020-10-11 15:52:46" itemprop="dateModified" datetime="2020-10-11T15:52:46+08:00">2020-10-11</time>
+                <time title="修改時間：2020-10-11 15:55:38" itemprop="dateModified" datetime="2020-10-11T15:55:38+08:00">2020-10-11</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,7 +250,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能到RDS控制台，修改Parameter Group</p>
+        <p><em><a id="more"></a></em></p>
+<p>RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能到RDS控制台，修改Parameter Group</p>
 <ol>
 <li><p>先啟動slow-log，到Parameter Group過濾關鍵字， <font color=#0000FF>slow_query_log   1  (1是啟用,預設是0) </font></p>
 </li>
