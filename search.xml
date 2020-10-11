@@ -47,7 +47,8 @@
   <entry>
     <title>ec2更改為用root帳號ssh登入</title>
     <url>/2020/10/10/AWS-EC2/</url>
-    <content><![CDATA[<h1 id="首先用ssh方式登入機器"><a href="#首先用ssh方式登入機器" class="headerlink" title="首先用ssh方式登入機器"></a>首先用ssh方式登入機器</h1><h6 id="1-建立完機器會下載一組金鑰如「web01-new-ppk」"><a href="#1-建立完機器會下載一組金鑰如「web01-new-ppk」" class="headerlink" title="1.建立完機器會下載一組金鑰如「web01_new.ppk」"></a>1.建立完機器會下載一組金鑰如「web01_new.ppk」</h6><h6 id="2-放到linux機器裡並更改密鑰權限為400"><a href="#2-放到linux機器裡並更改密鑰權限為400" class="headerlink" title="2.放到linux機器裡並更改密鑰權限為400"></a>2.放到linux機器裡並更改密鑰權限為400</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 400 web01_new.pem</span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<p><em><a id="more"></a></em></p>
+<h1 id="首先用ssh方式登入機器"><a href="#首先用ssh方式登入機器" class="headerlink" title="首先用ssh方式登入機器"></a>首先用ssh方式登入機器</h1><h6 id="1-建立完機器會下載一組金鑰如「web01-new-ppk」"><a href="#1-建立完機器會下載一組金鑰如「web01-new-ppk」" class="headerlink" title="1.建立完機器會下載一組金鑰如「web01_new.ppk」"></a>1.建立完機器會下載一組金鑰如「web01_new.ppk」</h6><h6 id="2-放到linux機器裡並更改密鑰權限為400"><a href="#2-放到linux機器裡並更改密鑰權限為400" class="headerlink" title="2.放到linux機器裡並更改密鑰權限為400"></a>2.放到linux機器裡並更改密鑰權限為400</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">chmod 400 web01_new.pem</span><br></pre></td></tr></table></figure>
 
 <h6 id="3-用ssh指令登入ec2"><a href="#3-用ssh指令登入ec2" class="headerlink" title="3.用ssh指令登入ec2"></a>3.用ssh指令登入ec2</h6><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ssh -i &quot;web01_new.pem&quot; ec2-user@ec2-54-249-50-180.ap-northeast-1.compute.amazonaws.com</span><br></pre></td></tr></table></figure>
 
