@@ -19,6 +19,11 @@
 ]]></content>
   </entry>
   <entry>
+    <title>rds修改slow-log輸出位置</title>
+    <url>/2020/10/11/rds%E4%BF%AE%E6%94%B9slow-log%E8%BC%B8%E5%87%BA%E4%BD%8D%E7%BD%AE/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>ec2更改為用root帳號ssh登入</title>
     <url>/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/</url>
     <content><![CDATA[<p><em><a id="more"></a></em></p>
