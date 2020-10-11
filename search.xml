@@ -19,11 +19,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>rds</title>
-    <url>/2020/10/11/rds-1/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>RDS修改slow-log輸出位置</title>
     <url>/2020/10/11/rds/</url>
     <content><![CDATA[<p>RDS不像是一般的資料庫設定，以MySQL來說，通常我們會去改 my.cnf但在RDS當中要修改資料庫相關參數，只能到RDS控制台，修改Parameter Group</p>
@@ -40,9 +35,6 @@
         <category>aws</category>
         <category>rds</category>
       </categories>
-      <tags>
-        <tag>rds</tag>
-      </tags>
   </entry>
   <entry>
     <title>ec2更改為用root帳號ssh登入</title>
@@ -75,8 +67,5 @@
         <category>aws</category>
         <category>ec2</category>
       </categories>
-      <tags>
-        <tag>ec2</tag>
-      </tags>
   </entry>
 </search>
