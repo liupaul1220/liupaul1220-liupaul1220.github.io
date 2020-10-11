@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/10/10/hello-world/</url>
+    <content><![CDATA[<p><em><a id="more"></a></em></p>
+<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>rds清除Slow_log Table紀錄</title>
+    <url>/2020/10/11/rds%E6%B8%85%E9%99%A4slow-log-Table%E7%B4%80%E9%8C%84/</url>
+    <content><![CDATA[<h5 id="sql語法中執行"><a href="#sql語法中執行" class="headerlink" title="sql語法中執行"></a>sql語法中執行</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">call rds_rotate_slow_log;</span><br></pre></td></tr></table></figure>
+
+<p><font color="red">rds_rotate_slow_log是Aws內建的procedure程序</font></p>
+]]></content>
+      <categories>
+        <category>aws</category>
+        <category>rds</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>ec2系統內更換預設路由</title>
+    <url>/2020/10/11/ec2%E7%B3%BB%E7%B5%B1%E5%85%A7%E6%9B%B4%E6%8F%9B%E9%A0%90%E8%A8%AD%E8%B7%AF%E7%94%B1/</url>
+    <content><![CDATA[<p><em><a id="more"></a></em></p>
+<p>aws-ec2 預設出去都是走eth0，但是如果你一台ec2有綁定2張網卡，要讓封包從eth1出去，這時候就會需要變更預設路由:</p>
+<h6 id="方法"><a href="#方法" class="headerlink" title="方法:"></a>方法:</h6><ol>
+<li><p>putty連線</p>
+</li>
+<li><p>查詢路由route -n</p>
+</li>
+<li><p>刪除預設gwroute del default gw 10.20.4.1</p>
+</li>
+<li><p>新增預設gw10.2route add default gw 10.20.3.1</p>
+</li>
+</ol>
+<p>   <font color="red">因為重啟系統後，路由又會恢復原狀，所以可以利用開機自動執行方式，將路由變更寫到Shell內然後開機自動執行( vi /etc/rc.local )shell。</font></p>
+]]></content>
+      <categories>
+        <category>aws</category>
+        <category>ec2</category>
+      </categories>
+  </entry>
+  <entry>
     <title>ec2改為用root帳號ssh登入</title>
     <url>/2020/10/10/ec2%E6%9B%B4%E6%94%B9%E7%82%BA%E7%94%A8root%E5%B8%B3%E8%99%9Fssh%E7%99%BB%E5%85%A5/</url>
     <content><![CDATA[<p><em><a id="more"></a></em></p>
@@ -31,47 +84,6 @@
         <category>aws</category>
         <category>ec2</category>
       </categories>
-  </entry>
-  <entry>
-    <title>ec2系統內更換預設路由</title>
-    <url>/2020/10/11/ec2%E7%B3%BB%E7%B5%B1%E5%85%A7%E6%9B%B4%E6%8F%9B%E9%A0%90%E8%A8%AD%E8%B7%AF%E7%94%B1/</url>
-    <content><![CDATA[<p><em><a id="more"></a></em></p>
-<p>aws-ec2 預設出去都是走eth0，但是如果你一台ec2有綁定2張網卡，要讓封包從eth1出去，這時候就會需要變更預設路由:</p>
-<h6 id="方法"><a href="#方法" class="headerlink" title="方法:"></a>方法:</h6><ol>
-<li><p>putty連線</p>
-</li>
-<li><p>查詢路由route -n</p>
-</li>
-<li><p>刪除預設gwroute del default gw 10.20.4.1</p>
-</li>
-<li><p>新增預設gw10.2route add default gw 10.20.3.1</p>
-</li>
-</ol>
-<p>   <font color="red">因為重啟系統後，路由又會恢復原狀，所以可以利用開機自動執行方式，將路由變更寫到Shell內然後開機自動執行( vi /etc/rc.local )shell。</font></p>
-]]></content>
-      <categories>
-        <category>aws</category>
-        <category>ec2</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/10/10/hello-world/</url>
-    <content><![CDATA[<p><em><a id="more"></a></em></p>
-<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
   </entry>
   <entry>
     <title>rds修改slow-log輸出位置</title>
